@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact us</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      /* height: 100vh; */
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo {
+            max-width: 100px; 
+            height: auto; 
+        }
+
+    header {
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+      text-align: center;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    header img {
+            max-width: 100px; 
+            margin-right: 20px;
+            align-items: center; 
+        } 
+
+    nav {
+      background-color: #0f3025;
+      color: white;
+      padding: 5px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      float: left;
+    }
+
+    nav a {
+      display: block;
+      color: white;
+      text-align: left;
+      padding: 10px 16px;
+      text-decoration: none;
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+    }
+
+    .half {
+      flex: 1;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .half.left {
+      background-image: url('https://wallpapers.com/images/high/dark-green-aesthetic-pictures-uou9ngc9wgk36u5s.webp');
+      color: rgb(255, 255, 255);
+      font-size: 90px;
+      padding: 10px;
+      height: 100%;
+    }
+
+    .half.right {
+      /* background-image: url('right-image.jpg'); */
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .content {
+      flex: 1;
+      color: #333;
+    }
+
+    p{
+      margin-left: 20px;
+      margin-top: 30px;
+    }
+
+    @keyframes fadeInOut {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+        .animated-text {
+      font-size: 90px;
+      animation: fadeInOut 5s infinite; 
+    }
+
+    main {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 30px;
+    }
+
+    form {
+      display: grid;
+      grid-gap: 10px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      font-size: 20px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+
+    button {
+      background-color: #0f3025;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://png.pngtree.com/template/20191024/ourmid/pngtree-flower-pot-and-plant-logo-growth-vector-logo-image_322946.jpg" alt="Logo">
+    <h1>CONTACT US</h1>
+  </header>
+
+
+  <nav>
+    <ul>
+      <li><a href="/homepage">Home</a></li>&nbsp;
+      <li><a href="/aboutus">About us</a></li>&nbsp;
+      <li><a href="/contactus">Contact us</a></li>&nbsp;
+    </ul>
+  </nav>
+
+
+  <div class="container">
+    <div class="half left">
+      <p class="animated-text">PLANT<br>DISEASE<br>DETECTION<br>SYSTEM</p>
+    </div>
+    
+
+    <div class="half right">
+      <div class="content">
+        
+        <main>
+          <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+      
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+      
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+      
+            <button type="submit">Submit</button>
+          </form>
+        </main>
+        </div>
+      </div>
+    
+    </body>
+    </html>
