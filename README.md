@@ -28,3 +28,8 @@ Here are some screenshots of the plant disease detection system:
 
 ![Contact Us](https://github.com/pratikdeoke/Plant-Disease-Detection-System/blob/main/screenshots/contact_us_a.png)
 
+## Tech Stack
+- **Programming Language**: Python
+- **Libraries**: TensorFlow, Keras, OpenCV, NumPy, scikit-learn
+- **Framework**: Flask (if applicable, for web app)
+- **Machine Learning**: Convolutional Neural Networks (CNN) for image classification
