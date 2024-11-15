@@ -7,7 +7,7 @@ from keras.preprocessing import image
 
 app = Flask(__name__)
 
-# Load your trained model
+# Model is loaded here
 model = load_model('D:\Major Project\Project 4\my_model4.h5')
 
 class_mapping = {
@@ -107,7 +107,7 @@ def predict_single():
         img_array = image.img_to_array(img)
         img_array_expanded_dims = np.expand_dims(img_array, axis=0)
 
-        # Make prediction
+        # Predict the image
         prediction = model.predict(img_array_expanded_dims)
         predicted_class_index = np.argmax(prediction, axis=1)[0]
         predicted_class_name = class_mapping.get(predicted_class_index, "Unknown class")
@@ -115,7 +115,7 @@ def predict_single():
         # Generate URL for the uploaded image
         image_url = url_for('static', filename='uploads/' + file.filename)
 
-        # Return the predicted class and image URL to the template
+        # Result
         return render_template('homepage.html', prediction=predicted_class_name, image_url=image_url)
 
 def predict_folder():
@@ -127,10 +127,8 @@ def predict_folder():
     
     predictions = []
     for file in folder:
-        # Get the folder name from the file path
         folder_name = os.path.basename(os.path.dirname(file.filename))
         
-        # Create the folder if it doesn't exist
         folder_path = os.path.join('uploads', folder_name)
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
@@ -159,7 +157,7 @@ def predict_folder():
 
     print("Predictions:", predictions)  # Debug print
 
-    # Return the predicted classes and image URLs to the template
+    # Result
     return render_template('homepage.html', predictions=predictions)
 
 
