@@ -33,3 +33,10 @@ Here are some screenshots of the plant disease detection system:
 - **Libraries**: TensorFlow, Keras, OpenCV, NumPy, scikit-learn
 - **Framework**: Flask (if applicable, for web app)
 - **Deep Learning**: Convolutional Neural Networks (CNN) for image classification
+
+## Model
+This project uses a Convolutional Neural Network (CNN) to classify plant diseases based on images of leaves. The model is trained on a dataset of plant images to recognize various plant diseases.
+
+## Acknowledgments
+- Dataset used from [PlantVillage dataset](https://www.kaggle.com/emmarex/plantdisease).
+- Thanks to [TensorFlow](https://www.tensorflow.org/) for providing tools to build the model.
