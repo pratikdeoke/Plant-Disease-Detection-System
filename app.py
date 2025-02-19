@@ -7,7 +7,6 @@ from keras.preprocessing import image
 
 app = Flask(__name__)
 
-# Model is loaded here
 model = load_model('D:\Major Project\Project 4\my_model4.h5')
 
 class_mapping = {
@@ -55,12 +54,9 @@ class_mapping = {
 def home():
     if request.method == 'POST':
         if 'file' in request.files:
-            # Single image prediction
             return predict_single()
         elif 'folder' in request.files:
-            # Folder prediction
             return predict_folder()
-    # Render the home page with the upload form
     return render_template('homepage.html')
 
 @app.route('/homepage')
@@ -98,24 +94,19 @@ def predict_single():
     if file.filename == '':
         return render_template('homepage.html', prediction='No selected file')
     if file:
-        # Save the file to the server
         filepath = './uploads/' + file.filename
         file.save(filepath)
         
-        # Load the image
         img = image.load_img(filepath, target_size=(224, 224))
         img_array = image.img_to_array(img)
         img_array_expanded_dims = np.expand_dims(img_array, axis=0)
 
-        # Predict the image
         prediction = model.predict(img_array_expanded_dims)
         predicted_class_index = np.argmax(prediction, axis=1)[0]
         predicted_class_name = class_mapping.get(predicted_class_index, "Unknown class")
 
-        # Generate URL for the uploaded image
         image_url = url_for('static', filename='uploads/' + file.filename)
 
-        # Result
         return render_template('homepage.html', prediction=predicted_class_name, image_url=image_url)
 
 def predict_folder():
@@ -133,31 +124,25 @@ def predict_folder():
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
         
-        # Save the file to the server
         filepath = os.path.join(folder_path, os.path.basename(file.filename))
         file.save(filepath)
         
-        # Load the image
         img = image.load_img(filepath, target_size=(224, 224))
         img_array = image.img_to_array(img)
         img_array_expanded_dims = np.expand_dims(img_array, axis=0)
 
-        # Make prediction
         prediction = model.predict(img_array_expanded_dims)
         predicted_class_index = np.argmax(prediction, axis=1)[0]
         predicted_class_name = class_mapping.get(predicted_class_index, "Unknown class")
         
         print("Predicted class name:", predicted_class_name)  # Debug print
         
-        # Generate URL for the uploaded image
         image_url = url_for('static', filename=os.path.join('uploads', folder_name, os.path.basename(file.filename)))
         
-        # Append prediction and image URL to the list
         predictions.append((predicted_class_name, image_url))
 
     print("Predictions:", predictions)  # Debug print
 
-    # Result
     return render_template('homepage.html', predictions=predictions)
 
 
