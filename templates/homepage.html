@@ -11,7 +11,6 @@
             background-position: center; 
             background-repeat: no-repeat; 
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            /* height: 100vh; */
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
@@ -167,13 +166,13 @@
 
     .form-container {
             display: flex;
-            justify-content: space-between; /* Adjust as needed */
+            justify-content: space-between; 
         }
     .forms{
-            flex: 1; /* Allow forms to grow and shrink equally */
+            flex: 1; 
     }
     form {
-            margin-right: 20px; /* Adjust spacing between forms */
+            margin-right: 20px; 
      }
 
         /* footer {
@@ -213,18 +212,11 @@
         <form action="/single_image_prediction" method="post" enctype="multipart/form-data">
           <label for="file-input" class="file-label" id="file-label">Choose Image</label>
           <input type="file" id="file-input" name="file" accept="image/*"required><br>
-  
-          <!-- <label for="folder">Choose Folder</label><br>
-          <input type="file" id="folder" name="folder" webkitdirectory directory multiple><br> -->
-  
           <div id="preview-image" style="max-width: 400px; max-height: 400px; overflow: hidden;"></div><br>
           <input type="submit" value="Analyse Image">
         </form>
       </div>
-  
-      
-  
-  
+   
       <div class="forms">
         <form action="/folder_prediction" method="post" enctype="multipart/form-data">
           <label for="folder" class="file-label" id="file-label">Choose Folder</label><br>
@@ -233,10 +225,6 @@
         </form>
       </div>
     </div>
-
-    
-
-    
 
       <div id="preview-image"></div>
       <div id="prediction-result" style="display: none;">
@@ -262,14 +250,8 @@
           }
         });
       </script>
-
-    
-
-    <!-- <footer>
-        <p>&copy; </p>
-    </footer> -->
-
     <script>
+        
   document.getElementById('file-input').addEventListener('change', function() {
     const preview = document.getElementById('preview-image');
     const file = this.files[0];
