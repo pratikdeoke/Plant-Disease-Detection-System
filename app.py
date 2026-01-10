@@ -135,16 +135,17 @@ def predict_folder():
         predicted_class_index = np.argmax(prediction, axis=1)[0]
         predicted_class_name = class_mapping.get(predicted_class_index, "Unknown class")
         
-        print("Predicted class name:", predicted_class_name)  # Debug print
+        print("Predicted class name:", predicted_class_name)
         
         image_url = url_for('static', filename=os.path.join('uploads', folder_name, os.path.basename(file.filename)))
         
         predictions.append((predicted_class_name, image_url))
 
-    print("Predictions:", predictions)  # Debug print
+    print("Predictions:", predictions)
 
     return render_template('homepage.html', predictions=predictions)
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+
